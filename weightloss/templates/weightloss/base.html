@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <!-- Site made with Mobirise Website Builder v5.5.5, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v5.5.5, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'weightloss/mobirise/images/14724034341629971259-128.png' %}" type="image/x-icon">
+  <meta name="description" content="">
+  
+  
+    {% if title %}
+        <title>Wegty - {{ title }}</title>
+    {% else %}
+        <title>Wegty</title>
+    {% endif %}
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/bootstrap/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/bootstrap/css/bootstrap-grid.min.css' %}">
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/bootstrap/css/bootstrap-reboot.min.css' %}">
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/socicon/css/styles.css' %}">
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/theme/css/style.css' %}">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;1,400;1,700&display=swap&display=swap"></noscript>
+  <link rel="preload" as="style" href="{% static 'weightloss/mobirise/mobirise/css/mbr-additional.css' %}">
+  <link rel="stylesheet" href="{% static 'weightloss/mobirise/mobirise/css/mbr-additional.css' %}" type="text/css">
+   <link rel="stylesheet" href="{% static 'weightloss/mine/css/main.css' %}">
+  
+  
+  
+  
+</head>
+<body>
+  
+  <section data-bs-version="5.1" class="menu menu2 cid-sUTsSuUdnb" once="menu" id="menu2-0">
+    
+    <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
+        <div class="container">
+            <div class="navbar-brand">
+                <span class="navbar-logo">
+                    
+                        <img src="{% static 'weightloss/mobirise/images/14724034341629971259-128.png' %}" alt="Mobirise" style="height: 3rem;">
+                    
+                </span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="{% url 'weightloss-home' %}">Wegty</a></span>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-home' %}">Hjem</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-post' %}">Lav Indlæg</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-log' %}">Log</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-guide' %}">Guide</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>
+<section data-bs-version="5.1" class="header3 mbr-fullscreen" style="background-image: url({% static 'weightloss/mobirise/images/weights.jpg' %});" id="header3-1">
+    <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(255, 255, 255);"></div>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</section>
+
+
+<script src="{% static 'weightloss/mobirise/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'weightloss/mobirise/smoothscroll/smooth-scroll.js' %}"></script>
+<script src="{% static 'weightloss/mobirise/ytplayer/index.js' %}"></script>
+<script src="{% static 'weightloss/mobirise/dropdown/js/navbar-dropdown.js' %}"></script>
+  
+  
+</body>
+</html>
