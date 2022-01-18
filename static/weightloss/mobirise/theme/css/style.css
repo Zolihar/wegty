@@ -610,6 +610,7 @@ nav .mbr-section-btn {
   -webkit-flex: 1;
   background: #4479d9;
   border-radius: 4px;
+  width: 100%;
 }
 
 
