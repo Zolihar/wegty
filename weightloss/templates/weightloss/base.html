@@ -28,6 +28,8 @@
   <link rel="preload" as="style" href="{% static 'weightloss/mobirise/mobirise/css/mbr-additional.css' %}">
   <link rel="stylesheet" href="{% static 'weightloss/mobirise/mobirise/css/mbr-additional.css' %}" type="text/css">
    <link rel="stylesheet" href="{% static 'weightloss/mine/css/main.css' %}">
+   {% block csslinks %}
+   {% endblock csslinks %}
   
   
   
@@ -90,7 +92,7 @@
 
 </section>
 
-
+{% block jslinks %}{% endblock jslinks %}
 <script src="{% static 'weightloss/mobirise/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'weightloss/mobirise/smoothscroll/smooth-scroll.js' %}"></script>
 <script src="{% static 'weightloss/mobirise/ytplayer/index.js' %}"></script>

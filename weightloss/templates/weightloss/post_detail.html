@@ -7,14 +7,17 @@
         <div class="card-box align-left">
             <div class="col-md-9 col-lg-9 col-sm-8 col-8">
                 <h4 class="card-title mbr-fonts-style mbr-white mb-0 ml-3 display-5">
-                <strong>{{ post.title }}</strong></h4>
+                <strong>{{ object.title }}</strong></h4>
                 <h2 class="card-title mbr-fonts-style mbr-white mb-3 display-7">
-                <strong>{{ post.author }} - Vægt: {{ post.weight }} - {{ post.date_posted|date:"d. F Y" }}</strong></h2>
-                {% if post.content|length > 255 %}
-                    <p class="card-content mbr-text mbr-fonts-style display-7">{{ post.content|truncatechars:255 }}</p>
-                {% else %}
-                    <p class="card-content mbr-text mbr-fonts-style display-7">{{ post.content }}</p>
-                {% endif %}                 
+                <strong>{{ object.author }}({{user}}) - Vægt: {{ object.weight }} - {{ object.date_posted|date:"d. F Y" }}</strong></h2>
+                 {% if object.author == user %}
+                    <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' object.id %}">Update</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' object.id %}">Delete</a>
+                {% endif %}
+                <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Content</legend>
+                    <p class="card-content mbr-text mbr-fonts-style display-7">{{ object.content }}</p>
+                <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Checklist andmærkninger</legend> 
+                <p class="card-content mbr-text mbr-fonts-style display-7">{{ object.checklist }}</p>            
             </div>          
         </div>
     </div>

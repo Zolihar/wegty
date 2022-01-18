@@ -14,20 +14,6 @@ def home(request):
  	return render(request, 'weightloss/home.html', context)
 
 @login_required
-def log(request):
- 	context = {
- 		'title': 'Log'
- 	}
- 	return render(request, 'weightloss/log.html', context)
-
-@login_required
-def post(request):
- 	context = {
- 		'title': 'Post'
- 	}
- 	return render(request, 'weightloss/post.html', context)
-
-@login_required
 def guide(request):
  	context = {
  		'title': 'Guides'
@@ -41,7 +27,7 @@ class LogListView(LoginRequiredMixin, ListView):
 
 class LogCreateView(LoginRequiredMixin, CreateView):
 	model = Post
-	fields = ['title', 'weight', 'content']
+	fields = ['title', 'weight', 'content', 'checklist']
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
@@ -49,3 +35,27 @@ class LogCreateView(LoginRequiredMixin, CreateView):
 
 class LogDetailView(LoginRequiredMixin, DetailView):
 	model = Post
+
+class LogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+	model = Post
+	success_url = "/log"
+
+	def test_func(self):
+		post = self.get_object()
+		if self.request.user == post.author:
+			return True
+		return False
+
+class LogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+	model = Post
+	fields = ['title', 'weight', 'content', 'checklist']
+
+	def form_valid(self, form):
+		form.instance.author = self.request.user
+		return super().form_valid(form)
+
+	def test_func(self):
+		post = self.get_object()
+		if self.request.user == post.author:
+			return True
+		return False

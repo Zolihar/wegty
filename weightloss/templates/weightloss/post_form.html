@@ -2,32 +2,62 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block csslinks %}
+<link rel="stylesheet" type="text/css" href="{% static 'weightloss/mine/css/checklist.css' %}">
+
+{% endblock csslinks %}
+
 {% block content %}
 <div class="row content-wrapper justify-content-center">
-            <div style="color: white;" class="col-lg-3 offset-lg-1 mbr-form" data-form-type="formoid">
+            <div style="color: white; background: black; padding-bottom: 5px;" class="col-lg-5 offset-lg-1 mbr-form" data-form-type="formoid">
                 <form method="POST">
                 	{% csrf_token %}
                     <div class="dragArea row">
                         <div style="color: white;" class="col-lg-12 col-md-12 col-sm-12">
                             <h1 class="mbr-section-title mb-4 display-2">
-                                <strong>Contact Us</strong>
+                                <strong>Lav et indlæg</strong>
                             </h1>
                         </div>
                         <div style="color: white;" class="col-lg-12 col-md-12 col-sm-12">
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                                Fill this form and we'll get back to you soon.</p>
+                                Fyld formen og tjek gerne tjek listen inden du trykker submit!</p>
                         </div>
                         {{ form|crispy }}
                         <div class="col-12 col-md-auto mbr-section-btn">
-                            <button type="submit" class="btn btn-secondary display-4">Submit</button>
+                            <button type="submit" class="btn btn-success display-4">Submit</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="col-lg-7 offset-lg-1 col-12">
-                <!-- <div class="image-wrapper">
-                    <img class="w-100" src="assets/images/sq3.jpg" alt="Mobirise">
-                </div> -->
-            </div>
-        </div>
+            <div class="col-lg-5 offset-lg-1 col-12">
+                <div id="workoutlist">
+                    <input id="01" type="checkbox" name="r" value="1">
+                    <label for="01">Cykel 15-20 Minutter</label>
+                    <input id="02" type="checkbox" name="r" value="2">
+                    <label for="02">12x Squats</label>
+                    <input id="03" type="checkbox" name="r" value="3">
+                    <label for="03">Pause 1-4 min.</label>
+                    <input id="04" type="checkbox" name="r" value="3">
+                    <label for="04">12x Squats</label>
+                    <input id="05" type="checkbox" name="r" value="3">
+                    <label for="05">Pause 1-4 min.</label>
+                    <input id="06" type="checkbox" name="r" value="3">
+                    <label for="06">12x Squats</label>
+                    <input id="07" type="checkbox" name="r" value="3">
+                    <label for="07">Pause 1-4 min.</label>
+                    <input id="08" type="checkbox" name="r" value="3">
+                    <label for="08">12x Lunge</label>
+                    <input id="09" type="checkbox" name="r" value="3">
+                    <label for="09">Pause 1-4 min.</label>
+                    <input id="10" type="checkbox" name="r" value="3">
+                    <label for="10">12x Lunge</label>
+                    <input id="11" type="checkbox" name="r" value="3">
+                    <label for="11">Pause 1-4 min.</label>
+                    <input id="12" type="checkbox" name="r" value="3">
+                    <label for="12">12x Lunge</label>
+                </div>  
 {% endblock content %}
+
+{% block jslinks %}
+
+{% endblock jslinks %}
