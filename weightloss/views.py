@@ -24,6 +24,11 @@ class LogListView(LoginRequiredMixin, ListView):
 	model = Post
 	template_name = 'weightloss/log.html'
 	ordering = ['-date_posted']
+	def get_queryset(self):
+		author = Post.objects.filter(author=self.request.user)
+		return author
+
+
 
 class LogCreateView(LoginRequiredMixin, CreateView):
 	model = Post

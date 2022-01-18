@@ -11,12 +11,12 @@
                 <h2 class="card-title mbr-fonts-style mbr-white mb-3 display-7">
                 <strong>{{ object.author }} - Vægt: {{ object.weight }} - {{ object.date_posted|date:"d. F Y" }}</strong></h2>
                  {% if object.author == user %}
-                    <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' object.id %}">Update</a>
-                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' object.id %}">Delete</a>
+                    <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' object.id %}">Opdater</a>
+                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' object.id %}">Slet</a>
                 {% endif %}
-                <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Content</legend>
+                <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Indhold</legend>
                     <p class="card-content mbr-text mbr-fonts-style display-7">{{ object.content }}</p>
-                <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Checklist andmærkninger</legend> 
+                <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Checklist anmærkninger</legend> 
                 <p class="card-content mbr-text mbr-fonts-style display-7">{{ object.checklist }}</p>            
             </div>        
         </div>

@@ -16,3 +16,7 @@ class Post(models.Model):
 
 	def get_absolute_url(self): #kom tilbage til det når post,update,delete og post er lavet
 		return reverse('weightloss-log-detail', kwargs={'pk': self.pk})
+
+class Checklist(models.Model):
+	workout = models.TextField() #Split med komma? ,,,
+	author = models.ForeignKey(User, on_delete=models.CASCADE)

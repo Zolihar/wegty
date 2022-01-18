@@ -1,0 +1,11 @@
+{% extends "weightloss/base.html" %}
+
+
+{% block content %}
+	<h2>Du er blevet logget ud</h2>
+	<div class="border-top pt-3">
+		<small class="text-muted">
+		<a href="{% url 'login' %}">Log ind igen</a>
+		</small>
+	</div>
+{% endblock %}
