@@ -8,3 +8,24 @@
 	text-align: left;
 	color: white;
 }
+
+.checklist-text{
+	color:white; 
+	background: #3d68ad;
+	border-radius: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.checklist-form{
+	color: white;
+	background: #3d68ad;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	border-radius: 10px;
+}
+
+#myChart {
+	background-color: white;
+	border-radius: 10px;
+}

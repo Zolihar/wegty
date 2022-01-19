@@ -63,7 +63,7 @@
                         <a class="nav-link link text-black display-4" href="{% url 'weightloss-home' %}">Hjem</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="#">Lav/Rediger checkliste</a>
+                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-checklist' %}">Lav/Rediger checkliste</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link link text-black display-4" href="{% url 'weightloss-post' %}">Lav Indlæg</a>
@@ -72,7 +72,7 @@
                         <a class="nav-link link text-black display-4" href="{% url 'weightloss-log' %}">Log</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-guide' %}">Guide</a>
+                        <a class="nav-link link text-black display-4" href="{% url 'weightloss-graph' %}">Graph</a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link link text-black display-4" href="{% url 'logout' %}">Log ud</a>
@@ -84,14 +84,14 @@
 </section>
 <section data-bs-version="5.1" class="header3 mbr-fullscreen" style="background-image: url({% static 'weightloss/mobirise/images/weights.jpg' %});" id="header3-1">
     <div class="mbr-overlay" style="opacity: 0.2; background-color: rgb(255, 255, 255);"></div>
+<div class="container">
     {% if messages %}
         {% for message in messages %}
             <div class="alert alert-{{ message.tags }}">
                 {{ message }}
             </div>
-        {% endfor %}
+    {% endfor %}
     {% endif %}
-<div class="container">
     {% block content %}
     {% endblock %}
 </div>

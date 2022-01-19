@@ -2,26 +2,21 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block csslinks %}
-<link rel="stylesheet" type="text/css" href="{% static 'weightloss/mine/css/checklist.css' %}">
-
-{% endblock csslinks %}
-
 {% block content %}
 
 <div class="row content-wrapper justify-content-center">
-            <div style="" class="col-lg-5 offset-lg-1 mbr-form checklist-form" data-form-type="formoid">
+            <div style="color: white; background: black; padding-bottom: 5px;" class="col-lg-5 offset-lg-1 mbr-form" data-form-type="formoid">
                 <form method="POST">
                 	{% csrf_token %}
                     <div class="dragArea row">
                         <div style="color: white;" class="col-lg-12 col-md-12 col-sm-12">
                             <h1 class="mbr-section-title mb-4 display-2">
-                                <strong>Lav et indlæg</strong>
+                                <strong>Lav en workout</strong>
                             </h1>
                         </div>
                         <div style="color: white;" class="col-lg-12 col-md-12 col-sm-12">
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                                Fyld formen og tjek gerne tjek listen inden du trykker submit!</p>
+                                split workout med ,</p>
                         </div>
                         {{ form|crispy }}
                         <div class="col-12 col-md-auto mbr-section-btn">
@@ -30,18 +25,6 @@
                     </div>
                 </form>
             </div>
-            <div class="col-lg-5 offset-lg-1 col-12">
-                {% if checklist == "none" %}
-                    <strong class="checklist-text">Du burde lave en checkliste først!
-                    tryk <a href="{% url 'weightloss-checklist' %}">her</a> for at lave en</strong>
-                {% else %}
-                <div id="workoutlist">      
-                    {% for workout in checklist %}
-                        <input id="01" type="checkbox" name="r" value="1">
-                        <label for="01">{{ workout }}</label>
-                    {% endfor %}
-                {% endif %}          
-                </div>  
 {% endblock content %}
 
 {% block jslinks %}

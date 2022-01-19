@@ -1,0 +1,43 @@
+{% extends "weightloss/base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div>
+  <canvas id="myChart"></canvas>
+</div>
+
+
+
+<script>
+  const labels = [
+    {% for w in weight %}
+    '{{ w.date_posted|date:"d. F Y" }}',
+    {% endfor %}
+  ];
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Mit vægt tab',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: [{% for w in weight %}{{ w.weight }}, {% endfor %}],
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {}
+  };
+</script>
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+</script>
+{% endblock content %}
