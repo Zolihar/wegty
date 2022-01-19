@@ -12,7 +12,7 @@
                     <strong><a href="{% url 'weightloss-log-detail' post.id %}">{{ post.title }}</a></strong></h4>
                     <h2 class="card-title mbr-fonts-style mbr-white mb-3 display-7">
                     <strong>{{ post.author }} - {{ post.date_posted|date:"d. F Y" }}</strong></h2>
-                    <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Content</legend>
+                    <legend style="padding-left: 5px; color: white;" class="border-bottom mb-2">Indhold</legend>
                     {% if post.content|length > 255 %}
                         <p class="card-content mbr-text mbr-fonts-style display-7">{{ post.content|truncatechars:255 }}</p>
                     {% else %}
