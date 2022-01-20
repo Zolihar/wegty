@@ -19,9 +19,15 @@ def home(request):
 @login_required
 def graph(request):
 	model = Post.objects.filter(author=request.user)
+	e = False
+	if model.first():
+		e = True
+	else:
+		e = False
 	context = {
 		'title': 'Graphs',
-		'weight': model
+		'weight': model,
+		'exist': e
 	}
 	return render(request, 'weightloss/graph.html', context)
 

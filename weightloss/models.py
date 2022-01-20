@@ -12,7 +12,8 @@ class Post(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.title
+		s = f'{self.author} - {self.title} - {self.date_posted}'
+		return s
 
 	def get_absolute_url(self): #kom tilbage til det når post,update,delete og post er lavet
 		return reverse('weightloss-log-detail', kwargs={'pk': self.pk})
