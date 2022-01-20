@@ -35,9 +35,9 @@
         <div class="p">
             <strong>{{ post.author }} - Vægt: {{ post.weight }}kg</strong>
             <legend class="border-bottom">Indhold</legend>
-            <p>{{ post.content }}</p>
+            <p>{{ post.content|linebreaks }}</p>
             <legend class="border-bottom">Checklist anmærkninger</legend>
-            <p>{{ post.checklist }}</p>
+            <p>{{ post.checklist|linebreaks }}</p>
             <!-- {% if post.author == user %}
                 <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' post.id %}">Opdater</a>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' post.id %}">Slet</a>
