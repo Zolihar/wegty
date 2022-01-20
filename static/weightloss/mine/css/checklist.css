@@ -1,6 +1,6 @@
 #workoutlist {
-  --background: #ffffff;
-  --text: #414856;
+  --background: #3d68ad;
+  --text: #ffffff;
   --check: #4f29f0;
   --disabled: #c3c8de;
   --width: 300px;
@@ -206,4 +206,8 @@ body {
       }
     }
   }
+}
+
+.cb-workoutlist{
+  color: white;
 }

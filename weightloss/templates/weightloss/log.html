@@ -1,9 +1,13 @@
 {% extends "weightloss/base.html" %}
 {% load static %}
 
+    {% block csslinks %}
+    <link rel="stylesheet" href="{% static 'weightloss/mine/css/accordion.css' %}">
+    {% endblock csslinks %}
+
 {% block content %}
 
-{% for post in object_list %}
+<!-- {% for post in object_list %}
     <div class="card col-md-12 col-lg-10 mt-2">
         <div class="card-wrapper">
             <div class="card-box align-left">
@@ -22,6 +26,33 @@
             </div>
         </div>
     </div>
-{% endfor %}
+{% endfor %} -->
+<div class="accordion">
+{% for post in object_list %}
+    <div class="c">
+        <input type="checkbox" id="faq-{{ post.pk }}">
+        <h1><label for="faq-{{ post.pk }}">{{ post.title }} - {{ post.date_posted|date:"d. F Y" }}</label></h1>
+        <div class="p">
+            <strong>{{ post.author }} - Vægt: {{ post.weight }}kg</strong>
+            <legend class="border-bottom">Indhold</legend>
+            <p>{{ post.content }}</p>
+            <legend class="border-bottom">Checklist anmærkninger</legend>
+            <p>{{ post.checklist }}</p>
+            <!-- {% if post.author == user %}
+                <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' post.id %}">Opdater</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' post.id %}">Slet</a>
+            {% endif %} -->
+        </div>
+    </div>
 
+{% endfor %}
+</div>
 {% endblock %}
+
+
+
+
+
+{% block jslinks %}
+
+{% endblock jslinks %}
