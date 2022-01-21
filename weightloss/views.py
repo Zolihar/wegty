@@ -34,7 +34,7 @@ def home(request):
 
 @login_required
 def graph(request):
-	model = Post.objects.filter(author=request.user)
+	model = Post.objects.filter(author=request.user).order_by('date_posted')
 	e = False
 	if model.first():
 		e = True
