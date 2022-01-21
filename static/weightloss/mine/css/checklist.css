@@ -3,7 +3,6 @@
   --text: #000;
   --check: #4f29f0;
   --disabled: #c3c8de;
-  --width: 300px;
 
   --border-radius: 10px;
 
@@ -12,8 +11,7 @@
   height: var(--height);
   border-radius: var(--border-radius);
   position: relative;
-  box-shadow: 0 10px 30px rgba(#414856, 0.05);
-  padding: 30px 45px;
+  padding: 2px 2px;
   display: grid;
   grid-template-columns: 30px auto;
   align-items: center;

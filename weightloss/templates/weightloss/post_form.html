@@ -16,7 +16,7 @@
 {% else %}
 <script src="{% static 'weightloss/mine/js/append.js' %}"></script>
 <div class="row content-wrapper justify-content-center">
-            <div style="" class="col-lg-5 offset-lg-1 mbr-form checklist-form" data-form-type="formoid">
+            <div style="" class="col-lg-5 mbr-form checklist-form" data-form-type="formoid">
                 <form method="POST">
                 	{% csrf_token %}
                     <div class="dragArea row">
@@ -50,7 +50,7 @@
                 </form>
             </div>
             {% if context.update != 'update' %}
-            <div class="col-lg-5 offset-lg-1 col-12">
+            <div class="col-lg-5 col-12">
                 <div id="workoutlist">      
                     {% for workout in context.checklist %}
                         <input id="{{ forloop.counter }}" type="checkbox" name="r" value="{{ workout }}">
