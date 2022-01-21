@@ -1,13 +1,10 @@
-{% extends "weightloss/base.html" %}
+{% extends "weightloss/users/base.html" %}
 
+{% block title %}Logget ud{% endblock %}
 
 {% block content %}
-<div class="content">
-	<h2>Du er blevet logget ud</h2>
-	<div class="border-top pt-3">
-		<small class="text-muted">
-		<a href="{% url 'login' %}">Log ind igen</a>
-		</small>
-	</div>
+<div class="alert alert-success">
+		Du er blevet logget ud
+		<a href="{% url 'login' %}">Log ind igen!</a>
 </div>
 {% endblock %}
