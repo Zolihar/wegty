@@ -13,20 +13,20 @@
 .card-title, .card-content{
 	margin-left: 15px;
 	text-align: left;
-	color: white;
+	color: black;
 }
 
 .checklist-text{
-	color:white; 
-	background: #3d68ad;
+	color:black; 
+/*	background: #3d68ad;*/
 	border-radius: 5px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
 .checklist-form{
-	color: white;
-	background: #3d68ad;
+	color: black;
+/*	background: #3d68ad;*/
 	padding-top: 10px;
 	padding-bottom: 15px;
 	border-radius: 10px;

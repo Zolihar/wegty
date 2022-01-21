@@ -93,6 +93,15 @@ class LogListView(LoginRequiredMixin, ListView):
 		author = Post.objects.filter(author=self.request.user).order_by('-date_posted')
 		return author
 
+	def get_context_data(self, **kwargs):
+		author = Post.objects.filter(author=self.request.user)
+		context = super().get_context_data(**kwargs)
+		if author:
+			context["state"] = True
+		else:
+			context["state"] = False
+		return context
+
 class LogCreateView(LoginRequiredMixin, CreateView):
 	model = Post
 	fields = ['title', 'weight', 'content', 'checklist']

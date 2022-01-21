@@ -6,29 +6,36 @@
     {% endblock csslinks %}
 
 {% block content %}
-<div class="container-accordion">
-    <div class="accordion">
-        <dl>
-        {% for post in object_list %}
-            <dt>
-                <a href="#accordion{{ post.pk }}" aria-expanded="false" aria-controls="accordion{{ post.pk }}" class="accordion-title accordionTitle js-accordionTrigger">{{ post.title }} - {{ post.date_posted|date:"d. F Y" }}</a>
-            </dt>
-            <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
-                <legend class="border-bottom"><strong>{{ post.author }} - Vægt: {{ post.weight }}kg</strong></legend>
-                <legend class="border-bottom"><strong>Indhold</strong></legend>
-                <p>{{ post.content|linebreaks }}</p>
-                <legend class="border-bottom"><strong>Checklist anmærkninger</strong></legend>
-                <p>{{ post.checklist }}</p>
-                <legend class="border-bottom"></legend>
-                {% if post.author == user %}
-                    <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' post.id %}">Opdater</a>
-                    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' post.id %}">Slet</a>
-                {% endif %}
-            </dd>
-        {% endfor %}
-        </dl>
-    </div>
-</div>
+    {% if state %}
+        <div class="container-accordion">
+            <div class="accordion">
+                <dl>
+                {% for post in object_list %}
+                    <dt>
+                        <a href="#accordion{{ post.pk }}" aria-expanded="false" aria-controls="accordion{{ post.pk }}" class="accordion-title accordionTitle js-accordionTrigger">{{ post.title }} - {{ post.date_posted|date:"d. F Y" }}</a>
+                    </dt>
+                    <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
+                        <legend class="border-bottom"><strong>{{ post.author }} - Vægt: {{ post.weight }}kg</strong></legend>
+                        <legend class="border-bottom"><strong>Indhold</strong></legend>
+                        <p>{{ post.content|linebreaks }}</p>
+                        <legend class="border-bottom"><strong>Checklist anmærkninger</strong></legend>
+                        <p>{{ post.checklist }}</p>
+                        <legend class="border-bottom"></legend>
+                        {% if post.author == user %}
+                            <a class="btn btn-info btn-sm mt-1 mb-1" href="{% url 'weightloss-log-update' post.id %}">Opdater</a>
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'weightloss-log-delete' post.id %}">Slet</a>
+                        {% endif %}
+                    </dd>
+                {% endfor %}
+                </dl>
+            </div>
+        </div>
+    {% else %}
+        <div class="align-center container-fluid">
+        <h1>Ingen log indlæg endnu!</h1>
+        <strong>Du har ikke lavet nogle indlæg endnu! lav en <a href="{% url 'weightloss-post' %}">her</a></strong>
+        </div>
+    {% endif %}
 {% endblock %}
 
 
