@@ -8,7 +8,12 @@
 {% endblock csslinks %}
 
 {% block content %}
-
+{% if checklist == "none" %}
+<div class="align-center container-fluid">
+    <h1>Ingen tjekliste fundet!</h1>
+    <strong>Du skal lave en tjekliste først tryk <a href="{% url 'weightloss-checklist' %}">her</a></strong>
+</div>
+{% else %}
 <div class="row content-wrapper justify-content-center">
             <div style="" class="col-lg-5 offset-lg-1 mbr-form checklist-form" data-form-type="formoid">
                 <form method="POST">
@@ -45,18 +50,14 @@
             </div>
             {% if update != 'update' %}
             <div class="col-lg-5 offset-lg-1 col-12">
-                {% if checklist == "none" %}
-                    <strong class="checklist-text">Du burde lave en tjekliste først!
-                    tryk <a href="{% url 'weightloss-checklist' %}">her</a> for at lave en</strong>
-                {% else %}
                 <div id="workoutlist">      
                     {% for workout in checklist %}
                         <input id="{{ forloop.counter }}" type="checkbox" name="r" value="1">
                         <label id="workout" class="cb-workoutlist" for="{{ forloop.counter }}">{{ workout }}</label>
-                    {% endfor %}
-                {% endif %}          
+                    {% endfor %}         
                 </div>          
             {% endif %}
+{% endif %}
 {% endblock content %}
 
 {% block jslinks %}
