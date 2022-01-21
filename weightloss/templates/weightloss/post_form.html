@@ -14,7 +14,7 @@
     <strong>Du skal lave en tjekliste først tryk <a href="{% url 'weightloss-checklist' %}">her</a></strong>
 </div>
 {% else %}
-<script src="{% static 'weightloss/mine/js/append.js' %}"></script>
+
 <div class="row content-wrapper justify-content-center">
             <div style="" class="col-lg-5 mbr-form checklist-form" data-form-type="formoid">
                 <form method="POST">
@@ -51,10 +51,15 @@
             </div>
             {% if context.update != 'update' %}
             <div class="col-lg-5 col-12">
-                <div id="workoutlist">      
+                <div id="workoutlist">     
+
                     {% for workout in context.checklist %}
+                        {% if workout == empty %}
+                            <br>
+                        {% else %}
                         <input id="{{ forloop.counter }}" type="checkbox" name="r" value="{{ workout }}">
-                        <label id="workout" class="cb-workoutlist" for="{{ forloop.counter }}">{{ workout }}</label>
+                            <label id="workout" class="cb-workoutlist" for="{{ forloop.counter }}">{{ workout }}</label>
+                        {% endif %}
                     {% endfor %}         
                 </div>          
             {% endif %}
@@ -62,5 +67,5 @@
 {% endblock content %}
 
 {% block jslinks %}
-
+<script src="{% static 'weightloss/mine/js/append.js' %}"></script>
 {% endblock jslinks %}

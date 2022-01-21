@@ -124,6 +124,9 @@ class LogCreateView(LoginRequiredMixin, CreateView):
 		cl = Checklist.objects.filter(author=self.request.user).first()
 		if cl:
 			cl = cl.workout.split('\n')
+			for c in cl:
+				if c == '\r':
+					cl.remove(c)
 		else:
 			cl = "none"
 		context = super().get_context_data(**kwargs)
