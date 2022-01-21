@@ -6,7 +6,7 @@ from django.urls import reverse
 class Post(models.Model):
 	title = models.CharField(max_length=100)
 	content = models.TextField()
-	weight = models.IntegerField()
+	weight = models.FloatField()
 	checklist = models.CharField(max_length=255)
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
