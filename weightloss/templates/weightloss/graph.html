@@ -2,6 +2,7 @@
 {% load static %}
 
 
+
 {% block content %}
 
 {% if exist == True %}
@@ -15,7 +16,7 @@
 <script>
   const labels = [
     {% for w in weight %}
-    '{{ w.date_posted|date:"d. F Y" }}',
+    '{{ w.date_posted|date:"d. N Y" }}',
     {% endfor %}
   ];
 
