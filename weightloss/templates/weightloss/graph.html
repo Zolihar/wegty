@@ -23,9 +23,10 @@
     labels: labels,
     datasets: [{
       label: 'Mit vægt tab',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgb(255, 99, 132)',
+      backgroundColor: 'rgba(255, 99, 132)',
+      borderColor: 'rgba(255, 99, 132)',
       data: [{% for w in weight %}{{ w.weight }}, {% endfor %}],
+      tension: 0.1,
     }]
   };
 
