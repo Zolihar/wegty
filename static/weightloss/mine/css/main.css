@@ -2,7 +2,14 @@
 	margin: auto;
 	width: 75%;
 	padding: 10px;
+	text-align: center;
 }
+
+.content-delete {
+	margin: auto;
+	width: 25%;
+}
+
 .card-title, .card-content{
 	margin-left: 15px;
 	text-align: left;

@@ -1,16 +1,23 @@
 {% extends "weightloss/base.html" %}
 
 {% block content %}
-	<div style="color: white;" class="content-section">
+	<div class="content">
 		<form method="POST">
 			{% csrf_token %}
 			<fieldset class="form-group">
-				<legend class="border-bottom mb-4">Delete Post</legend>
-				<h2>Are you sure you want to delete the post "{{ object.title }}"</h2>
+				<div class="row">
+					<h2>Er du sikker på at du vil slette inlægget "{{ object.title }}"?</h2>
+				</div>
 			</fieldset>
-			<div class="form-group">
-				<button class="btn btn-secondary" type="sumbit">Yes, Delete</button>
-				<a class="btn btn-info" href="{% url 'weightloss-log-detail' object.id %}">Cancel</a>
+			<div class="content-delete">
+				<div class="row">
+					<div class="col">
+						<button class="btn btn-secondary" type="sumbit">Ja, Slet</button>
+					</div>
+					<div class="col">
+						<a class="btn btn-info" href="{% url 'weightloss-log' %}">Cancel</a>
+					</div>
+				</div>
 			</div>
 		</form>
 	</div>
