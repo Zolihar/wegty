@@ -25,6 +25,10 @@
   padding:0.2em 0.2em 0.1em 2em;
 }
 
+.accordion strong {
+    padding-left: 1em;
+}
+
 .accordion {
     position:relative;
     background-color:#eee;

@@ -14,10 +14,10 @@
                 <a href="#accordion{{ post.pk }}" aria-expanded="false" aria-controls="accordion{{ post.pk }}" class="accordion-title accordionTitle js-accordionTrigger">{{ post.title }} - {{ post.date_posted|date:"d. F Y" }}</a>
             </dt>
             <dd class="accordion-content accordionItem is-collapsed" id="accordion1" aria-hidden="true">
-                <p><strong>{{ post.author }} - Vægt: {{ post.weight }}kg</strong></p>
-                <legend class="border-bottom">Indhold</legend>
+                <legend class="border-bottom"><strong>{{ post.author }} - Vægt: {{ post.weight }}kg</strong></legend>
+                <legend class="border-bottom"><strong>Indhold</strong></legend>
                 <p>{{ post.content|linebreaks }}</p>
-                <legend class="border-bottom">Checklist anmærkninger</legend>
+                <legend class="border-bottom"><strong>Checklist anmærkninger</strong></legend>
                 <p>{{ post.checklist }}</p>
                 <legend class="border-bottom"></legend>
                 {% if post.author == user %}
