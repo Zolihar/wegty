@@ -63,6 +63,11 @@ class ChecklistCreateView(LoginRequiredMixin, CreateView):
 		form.instance.author = self.request.user
 		return super().form_valid(form)
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context["state"] = 'create'
+		return context
+
 class ChecklistUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Checklist
 	fields = ['workout']
@@ -75,6 +80,11 @@ class ChecklistUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		if self.request.user == post.author:
 			return True
 		return False
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context["state"] = 'update'
+		return context
 
 class LogListView(LoginRequiredMixin, ListView):
 	model = Post
@@ -90,7 +100,7 @@ class LogCreateView(LoginRequiredMixin, CreateView):
 	def get_context_data(self, **kwargs):
 		cl = Checklist.objects.filter(author=self.request.user).first()
 		if cl:
-			cl = cl.workout.split(',')
+			cl = cl.workout.split('\n')
 		else:
 			cl = "none"
 		context = super().get_context_data(**kwargs)

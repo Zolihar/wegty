@@ -11,16 +11,24 @@
                     <div class="dragArea row">
                         <div style="color: white;" class="col-lg-12 col-md-12 col-sm-12">
                             <h1 class="mbr-section-title mb-4 display-2">
-                                <strong>Lav en workout</strong>
+                                {% if state == 'create' %}
+                                    <strong>Lav en workout</strong>
+                                {% else %}
+                                    <strong>Opdater dit workout</strong>
+                                {% endif %}
                             </h1>
                         </div>
                         <div style="color: white;" class="col-lg-12 col-md-12 col-sm-12">
                             <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                                split workout med ,</p>
+                                split workout med ny linje</p>
                         </div>
                         {{ form|crispy }}
                         <div class="col-12 col-md-auto mbr-section-btn">
-                            <button type="submit" class="btn btn-success display-4">Submit</button>
+                            {% if state == 'create' %}
+                                <button type="submit" class="btn btn-success display-4">Opret</button>
+                            {% else %}
+                                <button type="submit" class="btn btn-success display-4">Opdater</button>
+                            {% endif %}
                         </div>
                     </div>
                 </form>
