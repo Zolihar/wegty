@@ -1,0 +1,19 @@
+{% extends "weightloss/users/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Log ind{% endblock %}
+
+{% block content %}
+<form class="login-form" method="POST">
+	<div class="form-group">
+	{% csrf_token %}
+	{{ form|crispy }}
+	<div class="form-group">
+		<button type="submit" class="form-control btn btn-primary rounded submit px-3">Log ind</button>
+		<p>Ikke medlem? <a href="{% url 'register' %}">Registrer nu!</a></p>
+		<p><a href="{% url 'password_reset' %}">Glemt kode?</a></p>
+	</div>
+</form>
+{% endblock %}
+

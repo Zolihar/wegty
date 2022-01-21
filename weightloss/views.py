@@ -23,7 +23,7 @@ def register(request):
 		'title': 'Registrer bruger',
 		'form': form,
 	}
-	return render(request, 'weightloss/register.html', context)
+	return render(request, 'weightloss/users/register.html', context)
 
 @login_required
 def home(request):
