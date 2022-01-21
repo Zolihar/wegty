@@ -7,7 +7,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=100, verbose_name='Titel')
 	content = models.TextField(verbose_name='Indhold')
 	weight = models.FloatField(verbose_name='Vægt')
-	checklist = models.CharField(max_length=255, verbose_name='Tjekliste')
+	checklist = models.CharField(max_length=255, verbose_name='Tjekliste', default="empty")
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 

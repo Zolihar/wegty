@@ -118,7 +118,7 @@ class LogListView(LoginRequiredMixin, ListView):
 
 class LogCreateView(LoginRequiredMixin, CreateView):
 	model = Post
-	fields = ['title', 'weight', 'content', 'checklist']
+	fields = ['title', 'weight', 'content']
 
 	def get_context_data(self, **kwargs):
 		cl = Checklist.objects.filter(author=self.request.user).first()
@@ -161,7 +161,7 @@ class LogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class LogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Post
-	fields = ['title', 'weight', 'content', 'checklist']
+	fields = ['title', 'weight', 'content']
 
 	def form_valid(self, form):
 		form.instance.author = self.request.user
