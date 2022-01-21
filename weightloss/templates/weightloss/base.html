@@ -13,6 +13,8 @@
   
     {% if title %}
         <title>Wegty - {{ title }}</title>
+    {% elif context.title %}
+        <title>Wegty - {{ context.title }}</title>
     {% else %}
         <title>Wegty</title>
     {% endif %}

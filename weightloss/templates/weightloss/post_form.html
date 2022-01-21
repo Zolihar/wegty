@@ -8,7 +8,7 @@
 {% endblock csslinks %}
 
 {% block content %}
-{% if checklist == "none" %}
+{% if context.checklist == "none" %}
 <div class="align-center container-fluid">
     <h1>Ingen tjekliste fundet!</h1>
     <strong>Du skal lave en tjekliste først tryk <a href="{% url 'weightloss-checklist' %}">her</a></strong>
@@ -29,7 +29,7 @@
                             </h1>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12">
-                            {% if update == 'update' %}
+                            {% if context.update == 'update' %}
                                 <p class="mbr-text mbr-fonts-style mb-4 display-7">
                                 Opdater formen og tjek gerne at alle felter er har data.</p>
                             {% else %}
@@ -39,7 +39,7 @@
                         </div>
                         {{ form|crispy }}
                         <div class="col-12 col-md-auto mbr-section-btn">
-                            {% if update == 'update' %}
+                            {% if context.update == 'update' %}
                             <button type="submit" class="btn btn-success display-4">Opdater</button>
                             {% else %}
                             <button type="submit" class="btn btn-success display-4">Indsend</button>
@@ -48,10 +48,10 @@
                     </div>
                 </form>
             </div>
-            {% if update != 'update' %}
+            {% if context.update != 'update' %}
             <div class="col-lg-5 offset-lg-1 col-12">
                 <div id="workoutlist">      
-                    {% for workout in checklist %}
+                    {% for workout in context.checklist %}
                         <input id="{{ forloop.counter }}" type="checkbox" name="r" value="1">
                         <label id="workout" class="cb-workoutlist" for="{{ forloop.counter }}">{{ workout }}</label>
                     {% endfor %}         

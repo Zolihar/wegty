@@ -28,7 +28,7 @@ def register(request):
 @login_required
 def home(request):
  	context = {
- 		'title': 'Home'
+ 		'title': 'Hjem'
  	}
  	return render(request, 'weightloss/home.html', context)
 
@@ -41,7 +41,7 @@ def graph(request):
 	else:
 		e = False
 	context = {
-		'title': 'Graphs',
+		'title': 'Kurve',
 		'weight': model,
 		'exist': e
 	}
@@ -65,7 +65,11 @@ class ChecklistCreateView(LoginRequiredMixin, CreateView):
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		context["state"] = 'create'
+		cs = {
+			'state': 'create',
+			'title': 'Lav Tjekliste'
+		}
+		context["context"] = cs
 		return context
 
 class ChecklistUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
@@ -83,7 +87,11 @@ class ChecklistUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		context["state"] = 'update'
+		cs = {
+			'state': 'update',
+			'title': 'Opdater Tjekliste'
+		}
+		context["context"] = cs
 		return context
 
 class LogListView(LoginRequiredMixin, ListView):
@@ -96,10 +104,16 @@ class LogListView(LoginRequiredMixin, ListView):
 	def get_context_data(self, **kwargs):
 		author = Post.objects.filter(author=self.request.user)
 		context = super().get_context_data(**kwargs)
+		state = True
 		if author:
-			context["state"] = True
+			state = True
 		else:
-			context["state"] = False
+			state = False
+		cs = {
+			'state': state,
+			'title': 'Indlæg'
+		}
+		context['context'] = cs
 		return context
 
 class LogCreateView(LoginRequiredMixin, CreateView):
@@ -113,7 +127,11 @@ class LogCreateView(LoginRequiredMixin, CreateView):
 		else:
 			cl = "none"
 		context = super().get_context_data(**kwargs)
-		context["checklist"] = cl
+		cs = {
+			'checklist': cl,
+			'title': 'Lav Indlæg'
+		}
+		context["context"] = cs
 		return context
 
 	def form_valid(self, form):
@@ -133,6 +151,14 @@ class LogDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 			return True
 		return False
 
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		cs = {
+			'title': 'Slet indlæg'
+		}
+		context["context"] = cs
+		return context
+
 class LogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 	model = Post
 	fields = ['title', 'weight', 'content', 'checklist']
@@ -149,5 +175,9 @@ class LogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		context["update"] = 'update'
+		cs = {
+			'update': 'update',
+			'title': 'Opdater indlæg'
+		}
+		context["context"] = cs
 		return context
