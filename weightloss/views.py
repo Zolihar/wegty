@@ -111,3 +111,8 @@ class LogUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 		if self.request.user == post.author:
 			return True
 		return False
+
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		context["update"] = 'update'
+		return context
