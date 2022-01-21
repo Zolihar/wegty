@@ -4,12 +4,13 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 
 class Post(models.Model):
-	title = models.CharField(max_length=100)
-	content = models.TextField()
-	weight = models.FloatField()
-	checklist = models.CharField(max_length=255)
+	title = models.CharField(max_length=100, verbose_name='Titel')
+	content = models.TextField(verbose_name='Indhold')
+	weight = models.FloatField(verbose_name='Vægt')
+	checklist = models.CharField(max_length=255, verbose_name='Tjekliste')
 	date_posted = models.DateTimeField(default=timezone.now)
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
+
 
 	def __str__(self):
 		s = f'{self.author} - {self.title} - {self.date_posted}'
