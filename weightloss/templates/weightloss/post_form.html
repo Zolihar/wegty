@@ -14,6 +14,7 @@
     <strong>Du skal lave en tjekliste først tryk <a href="{% url 'weightloss-checklist' %}">her</a></strong>
 </div>
 {% else %}
+<script src="{% static 'weightloss/mine/js/append.js' %}"></script>
 <div class="row content-wrapper justify-content-center">
             <div style="" class="col-lg-5 offset-lg-1 mbr-form checklist-form" data-form-type="formoid">
                 <form method="POST">
@@ -34,7 +35,7 @@
                                 Opdater formen og tjek gerne at alle felter er har data.</p>
                             {% else %}
                                 <p class="mbr-text mbr-fonts-style mb-4 display-7">
-                                Fyld formen og tjek gerne tjek listen inden du trykker Indsend!</p>
+                                Fyld formen og tjek gerne tjeklisten inden du trykker Indsend!</p>
                             {% endif %}
                         </div>
                         {{ form|crispy }}
@@ -52,7 +53,7 @@
             <div class="col-lg-5 offset-lg-1 col-12">
                 <div id="workoutlist">      
                     {% for workout in context.checklist %}
-                        <input id="{{ forloop.counter }}" type="checkbox" name="r" value="1">
+                        <input id="{{ forloop.counter }}" type="checkbox" name="r" value="{{ workout }}">
                         <label id="workout" class="cb-workoutlist" for="{{ forloop.counter }}">{{ workout }}</label>
                     {% endfor %}         
                 </div>          
